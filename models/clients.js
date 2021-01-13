@@ -6,7 +6,6 @@ module.exports = (sequelize, DataTypes) => {
     email: DataTypes.STRING,
     phone: DataTypes.STRING,
     insurance: DataTypes.STRING,
-    provider_ID: DataTypes.INTEGER,
   });
 
   Clients.associate = (models) => {
