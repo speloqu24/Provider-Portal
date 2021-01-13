@@ -36,7 +36,7 @@ $(document).ready(function () {
   });
 
   function newClient(firstName, lastName, email, phone, insurance) {
-    $.post("/api/clients", {
+    $.post("/members", {
       firstName: firstName,
       lastName: lastName,
       email: email,

@@ -4,8 +4,17 @@ const db = require("../models");
 // Routes
 
 module.exports = (app) => {
+  app.post("/members", (req, res) => {
+    db.Clients.create({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      phone: req.body.phone,
+      insurance: req.body.insurance,
+    }).then((data) => res.json(data));
+  });
   // get ALL clients
-  app.get("/clients", (req, res) => {
+  app.get("/api/add-clients", (req, res) => {
     // findAll THE clients that have been added to the database
     db.Clients.findAll({}).then((data) => res.json(data));
   });
@@ -16,17 +25,7 @@ module.exports = (app) => {
   });
 
   // add clients
-  app.post("/clients/add", (req, res) => {
-    db.Clients.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
-      email: req.body.email,
-      phone: req.body.phone,
-      insurance: req.body.insurance,
-      provider: req.body.provider,
-      emergencyContact: req.body.emergencyContact,
-    }).then((data) => res.json(data));
-  });
+  // sam edit 1/12
 
   // add providers
   app.post("/provider/add", (req, res) => {
