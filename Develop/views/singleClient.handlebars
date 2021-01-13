@@ -1,0 +1,38 @@
+This is for single client data
+{{!-- I think we will need a handlebars for clients and providers, we will see. --}}
+
+<h1>Current Client</h1>
+
+2 coloumns, far left and far right
+
+<table>
+    far left
+    <tr class="clients">
+        <td>{{client.photo}}
+        </td>
+    </tr>
+    <tr>
+        <td>{{client.firstName}}</td>
+        <td>{{client.lastName}}</td>
+    </tr>
+
+    <tr>
+        <td>{{client.phone}}</td>
+        <td>{{client.email}}</td>
+    </tr>
+</table>
+
+<table>
+    far right
+    <tr class="clients">
+        <td>{{client.provider}}</td>
+    </tr>
+    <tr>
+        <td>{{client.insurance}}</td>
+        <td>{{client.emergencyContact}}</td>
+    </tr>
+</table>
+
+
+
+--}}
