@@ -14,16 +14,16 @@ $(document).ready(function () {
   $(".addClientBtn").on("click", function (event) {
     event.preventDefault();
     const clientData = {
-      firstName: clientFirst.val().trim(),
-      lastName: clientLast.val().trim(),
+      first_name: clientFirst.val().trim(),
+      last_name: clientLast.val().trim(),
       email: clientEmail.val().trim(),
       phone: clientPhone.val().trim(),
       insurance: clientIns.val().trim(),
     };
     console.log(clientData);
     newClient(
-      clientData.firstName,
-      clientData.lastName,
+      clientData.first_name,
+      clientData.last_name,
       clientData.email,
       clientData.phone,
       clientData.insurance
@@ -35,10 +35,10 @@ $(document).ready(function () {
     clientIns.val("");
   });
 
-  function newClient(firstName, lastName, email, phone, insurance) {
+  function newClient(first_name, last_name, email, phone, insurance) {
     $.post("/api/clients", {
-      firstName: firstName,
-      lastName: lastName,
+      first_name: first_name,
+      last_name: last_name,
       email: email,
       phone: phone,
       insurance: insurance,
