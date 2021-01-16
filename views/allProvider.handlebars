@@ -1,2 +1,17 @@
-This will render ALL provider data and have a form at the top
-for adding new provider(s)
+{{!-- This will render ALL provider data and have a form at the top
+for adding new provider(s) --}}
+
+<h1>All Providers</h1>
+
+<ul>
+    {{#each Clients}}
+    <li>
+        <p>Name: {{first_name}} {{last_name}}</p>
+        <p>Email: {{email}}</p>
+        <p>Phone: {{phone}}</p>
+        <p>Company: {{company}}</p>
+        <p>Practice: {{practice}}</p>
+
+    </li>
+    {{/each}}
+</ul>
