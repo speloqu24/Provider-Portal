@@ -1,6 +1,4 @@
 $(document).ready(function () {
-  let providerID;
-
   // This file just does a GET request to figure out which user is logged in
   // and updates the HTML on the page
   $.get("/api/user_data").then(function (data) {
@@ -17,7 +15,7 @@ $(document).ready(function () {
       email: document.getElementById("clientEmail").value.trim(),
       phone: document.getElementById("clientPhone").value.trim(),
       insurance: document.getElementById("clientIns").value.trim(),
-      provider: document.getElementById("clientPro").value.trim(),
+      ProviderId: parseInt(document.getElementById("clientPro").value),
     };
     fetch("/api/client", {
       method: "POST",
@@ -25,7 +23,12 @@ $(document).ready(function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newClient),
-    }).then((data) => data.json());
+    })
+      .then((data) => data.json())
+      .then((res) => {
+        document.getElementById("clientFirst").value = "";
+        //add rest of elements
+      });
   });
 
   //-------------------Add Provider-----------------------------------
@@ -46,7 +49,7 @@ $(document).ready(function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newProvider),
-    }).then((data) => data.json());
+    }).then((data) => data.json()); //add.then to clear fields
   });
 
   //getting provider first and last name and id
@@ -61,14 +64,8 @@ $(document).ready(function () {
       data.forEach((provider) => {
         const element = $(`<option>`)
           .text(`${provider.first_name} ${provider.last_name}`)
-          .attr("data-id", provider.id)
-          .attr("class", "providerName");
+          .attr("value", provider.id);
         $("#clientPro").append(element);
       });
     });
-
-  $("#clientPro").on("click", ".providerName", function () {
-    providerID = this.attr("data-id");
-    console.log("String");
-  });
 });

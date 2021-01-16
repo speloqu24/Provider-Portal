@@ -25,7 +25,7 @@ module.exports = (app) => {
       email: req.body.email,
       phone: req.body.phone,
       insurance: req.body.insurance,
-      provider: req.body.provider,
+      ProviderId: req.body.ProviderId,
     }).then((data) => res.json(data));
   });
 
