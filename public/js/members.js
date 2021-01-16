@@ -26,8 +26,13 @@ $(document).ready(function () {
     })
       .then((data) => data.json())
       .then((res) => {
+        //clears fields
         document.getElementById("clientFirst").value = "";
-        //add rest of elements
+        document.getElementById("clientLast").value = "";
+        document.getElementById("clientEmail").value = "";
+        document.getElementById("clientPhone").value = "";
+        document.getElementById("clientIns").value = "";
+        document.getElementById("clientPro").value = "";
       });
   });
 
@@ -49,7 +54,17 @@ $(document).ready(function () {
         "Content-Type": "application/json",
       },
       body: JSON.stringify(newProvider),
-    }).then((data) => data.json()); //add.then to clear fields
+    })
+      .then((data) => data.json())
+      .then((res) => {
+        //clears fields
+        document.getElementById("proFirst").value = "";
+        document.getElementById("proLast").value = "";
+        document.getElementById("proEmail").value = "";
+        document.getElementById("proPhone").value = "";
+        document.getElementById("proCompany").value = "";
+        document.getElementById("proPractice").value = "";
+      });
   });
 
   //getting provider first and last name and id
