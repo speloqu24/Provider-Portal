@@ -10,9 +10,14 @@ require("dotenv").config();
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
+var app = express();
+const exphbs = require('express-handlebars');
+// Set Handlebars as the default templating engine.
+app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
 
 // Creating express app and configuring middleware needed for authentication
-var app = express();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(express.static("public"));
