@@ -11,27 +11,23 @@ require("dotenv").config();
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
 var app = express();
+
 const exphbs = require("express-handlebars");
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.use(express.static("public"));
 app.set("view engine", "handlebars");
 
 // Creating express app and configuring middleware needed for authentication
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
 
-// Set Handlebars - unable to get this to work, keept getting an Error: Cannot find module 'express-handlebars'
-// const exphbs = require('express-handlebars');
-
-// app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
-// app.set('view engine', 'handlebars');
-
+// Set Handlebars
 app.use(passport.initialize());
 app.use(passport.session());
 
