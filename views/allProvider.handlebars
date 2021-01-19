@@ -3,15 +3,18 @@ for adding new provider(s) --}}
 
 <h1>All Providers</h1>
 
-<ul>
+<div class="row">
     {{#each Providers}}
-    <li>
-        <p>Name: {{first_name}} {{last_name}}</p>
-        <p>Email: {{email}}</p>
-        <p>Phone: {{phone}}</p>
-        <p>Company: {{company}}</p>
-        <p>Practice: {{practice}}</p>
-
-    </li>
+    <div class="card col-sm-4 col-sm-offset-1" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title"><a href="#" class="card-link">{{first_name}} {{last_name}}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{practice}}</h6>
+            <p class="card-text">
+                Company: {{company}} <br />
+                Email: {{email}}<br />
+                Phone Number: {{phone}}<br />
+            </p>
+        </div>
+    </div>
     {{/each}}
-</ul>
+</div>
