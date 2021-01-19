@@ -13,14 +13,18 @@
 
 <h1>All Cients</h1>
 
-<ul>
+<div class="row">
   {{#each Clients}}
-    <li>
-      <p>Name: {{first_name}} {{last_name}}</p>
-      <p>Email: {{email}}</p>
-      <p>Phone: {{phone}}</p>
-      <p>Insurance: {{insurance}}</p>
-    <p>Provider: {{Provider.first_name}} {{Provider.last_name}}</p>
-    </li>
+    <div class="card col-sm-4 col-sm-offset-1" style="width: 25rem;">
+        <div class="card-body">
+            <h5 class="card-title"><a href="#" class="card-link">{{first_name}} {{last_name}}</a></h5>
+            <h6 class="card-subtitle mb-2 text-muted">{{Provider.first_name}} {{Provider.last_name}}</h6>
+            <p class="card-text">
+                Insurance: {{insurance}} <br/>
+                Email: {{email}}<br />
+                Phone Number: {{phone}}<br />
+            </p>
+        </div>
+    </div>
   {{/each}}
-</ul>
+</div>
