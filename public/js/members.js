@@ -68,7 +68,7 @@ $(document).ready(function () {
   });
 
   //getting provider first and last name and id
-  fetch("/api/providers", {
+  fetch("/api/providerList", {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
