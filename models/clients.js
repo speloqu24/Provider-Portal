@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
   Clients.associate = (models) => {
     Clients.belongsTo(models.Providers, {
       foreignKey: {
-        allowNull: false,
+        allowNull: true,
       },
     });
   };

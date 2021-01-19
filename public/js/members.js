@@ -5,52 +5,82 @@ $(document).ready(function () {
     $(".member-name").text(data.email);
   });
 
-  const clientFirst = $("input#firstNameCli");
-  const clientLast = $("input#lastNameCli");
-  const clientEmail = $("input#emailCli");
-  const clientPhone = $("input#phoneCli");
-  const clientIns = $("input#insuranceCli");
-
-  $(".addClientBtn").on("click", function (event) {
-    event.preventDefault();
-    const clientData = {
-      first_name: clientFirst.val().trim(),
-      last_name: clientLast.val().trim(),
-      email: clientEmail.val().trim(),
-      phone: clientPhone.val().trim(),
-      insurance: clientIns.val().trim(),
+  //--------------------Add Client------------------------------
+  const submitClientBtn = document.getElementById("addClientBtn");
+  submitClientBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const newClient = {
+      first_name: document.getElementById("clientFirst").value.trim(),
+      last_name: document.getElementById("clientLast").value.trim(),
+      email: document.getElementById("clientEmail").value.trim(),
+      phone: document.getElementById("clientPhone").value.trim(),
+      insurance: document.getElementById("clientIns").value.trim(),
+      ProviderId: parseInt(document.getElementById("clientPro").value),
     };
-    console.log(clientData);
-    newClient(
-      clientData.first_name,
-      clientData.last_name,
-      clientData.email,
-      clientData.phone,
-      clientData.insurance
-    );
-    clientFirst.val("");
-    clientLast.val("");
-    clientEmail.val("");
-    clientPhone.val("");
-    clientIns.val("");
-  });
-
-  function newClient(first_name, last_name, email, phone, insurance) {
-    $.post("/api/clients", {
-      first_name: first_name,
-      last_name: last_name,
-      email: email,
-      phone: phone,
-      insurance: insurance,
+    fetch("/api/client", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newClient),
     })
-      // .then(function (data) {
-      //   window.location.replace("/members");
-      //   // If there's an error, handle it by throwing up a bootstrap alert
-      // })
-      .catch(handleLoginErr);
-  }
-
-  $(".addProBtn").on("click", function () {
-    console.log("it worked!");
+      .then((data) => data.json())
+      .then((res) => {
+        //clears fields
+        document.getElementById("clientFirst").value = "";
+        document.getElementById("clientLast").value = "";
+        document.getElementById("clientEmail").value = "";
+        document.getElementById("clientPhone").value = "";
+        document.getElementById("clientIns").value = "";
+        document.getElementById("clientPro").value = "";
+      });
   });
+
+  //-------------------Add Provider-----------------------------------
+  const submitProBtn = document.getElementById("addProBtn");
+  submitProBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    const newProvider = {
+      first_name: document.getElementById("proFirst").value.trim(),
+      last_name: document.getElementById("proLast").value.trim(),
+      email: document.getElementById("proEmail").value.trim(),
+      phone: document.getElementById("proPhone").value.trim(),
+      company: document.getElementById("proCompany").value.trim(),
+      practice: document.getElementById("proPractice").value.trim(),
+    };
+    fetch("/api/provider", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(newProvider),
+    })
+      .then((data) => data.json())
+      .then((res) => {
+        //clears fields
+        document.getElementById("proFirst").value = "";
+        document.getElementById("proLast").value = "";
+        document.getElementById("proEmail").value = "";
+        document.getElementById("proPhone").value = "";
+        document.getElementById("proCompany").value = "";
+        document.getElementById("proPractice").value = "";
+      });
+  });
+
+  //getting provider first and last name and id
+  fetch("/api/providers", {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  })
+    .then((data) => data.json())
+    .then((data) => {
+      data.forEach((provider) => {
+        const element = $(`<option>`)
+          .text(`${provider.first_name} ${provider.last_name}`)
+          .attr("value", provider.id);
+        $("#clientPro").append(element);
+      });
+    });
 });

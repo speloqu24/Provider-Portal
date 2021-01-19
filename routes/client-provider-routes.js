@@ -9,34 +9,35 @@ module.exports = (app) => {
     // findAll THE clients that have been added to the database
     db.Clients.findAll({}).then((data) => res.json(data));
   });
+  //.then(res.render('allClient'), {clients: data})
 
   // get ALL providers
-  app.get("/providers", (req, res) => {
+  app.get("/api/providers", (req, res) => {
     db.Providers.findAll({}).then((data) => res.json(data));
   });
+  //.then(res.render('allProvider'), {providers: data})
 
   // add clients
-  app.post("/clients/add", (req, res) => {
+  app.post("/api/client", (req, res) => {
     db.Clients.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
       phone: req.body.phone,
       insurance: req.body.insurance,
-      provider: req.body.provider,
-      emergencyContact: req.body.emergencyContact,
+      ProviderId: req.body.ProviderId,
     }).then((data) => res.json(data));
   });
 
   // add providers
-  app.post("/provider/add", (req, res) => {
+  app.post("/api/provider", (req, res) => {
     db.Providers.create({
-      firstName: req.body.firstName,
-      lastName: req.body.lastName,
+      first_name: req.body.first_name,
+      last_name: req.body.last_name,
       email: req.body.email,
       phone: req.body.phone,
       company: req.body.company,
-      practice_industry: req.body.practice_industry,
+      practice: req.body.practice,
     }).then((data) => res.json(data));
   });
 };

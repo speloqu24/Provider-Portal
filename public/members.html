@@ -12,10 +12,17 @@
   </head>
 
   <body>
+    <!-- ----------------------NAVBAR-------------------- -->
     <nav class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <a class="navbar-brand" href="/logout"> Logout </a>
+          <a class="navbar-brand" id="viewClients" href="/viewClients">
+            View All Clients
+          </a>
+          <a class="navbar-brand" id="viewPro" href="/viewPro">
+            View All Providers
+          </a>
         </div>
       </div>
     </nav>
@@ -29,96 +36,126 @@
       <div class="row">
         <div class="card col-md-4 col-md-offset-2" style="width: 30rem">
           <div class="card-body">
-            <h5 class="card-title">Add a Client</h5>
+            <h3 class="card-title">Add a Client</h3>
             <!-- Picture of a child? -->
             <p class="card-text">
               Enter a new client to your company's client database
             </p>
-            <div class="input-group">
-              <span class="input-group-text">First and Last name</span>
-              <input
-                type="text"
-                aria-label="First name"
-                class="form-control"
-                id="firstNameCli"
-              />
-              <input
-                type="text"
-                aria-label="Last name"
-                class="form-control"
-                id="lastNameCli"
-              />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text">Email and Phone Number</span>
-              <input
-                type="text"
-                aria-label="Email"
-                class="form-control"
-                id="emailCli"
-              />
-              <input
-                type="text"
-                aria-label="Phone Number"
-                class="form-control"
-                id="phoneCli"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default"
-                >Insurance</span
+            <form>
+              <div class="input-group">
+                <span class="input-group-text">First and Last name</span>
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control"
+                  id="clientFirst"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  id="clientLast"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">Email and Phone Number</span>
+                <input
+                  type="text"
+                  aria-label="Email"
+                  class="form-control"
+                  id="clientEmail"
+                />
+                <input
+                  type="text"
+                  aria-label="Phone Number"
+                  class="form-control"
+                  id="clientPhone"
+                />
+              </div>
+              <div class="input-group mb-3 col-md-12">
+                <span class="input-group-text" id="inputGroup-sizing-default"
+                  >Insurance</span
+                >
+                <input
+                  type="text"
+                  class="form-control"
+                  id="clientIns"
+                  aria-label="Sizing example input"
+                  aria-describedby="inputGroup-sizing-default"
+                />
+              </div>
+              <select
+                class="form-select col-md-12"
+                aria-label="Default select example"
+                id="clientPro"
               >
-              <input
-                type="text"
-                class="form-control"
-                id="insuranceCli"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
-
-            <button class="addClientBtn">
-              <a href="" class="card-link">Add Client</a>
-            </button>
+                <option selected>Choose a Provider</option>
+              </select>
+              <button type="submit" class="btn btn-primary" id="addClientBtn">
+                Add Client
+              </button>
+            </form>
           </div>
         </div>
         <!-- ----------------------------------------- -->
         <!-- ---------------ADD PROVIDER CARD-------------------- -->
         <div class="card col-md-4 col-md-offset-2" style="width: 30rem">
           <div class="card-body">
-            <h5 class="card-title">Add a Provider</h5>
+            <h3 class="card-title">Add a Provider</h3>
             <!-- Doctor picture -->
             <p class="card-text">
               Enter a new provider to your company's provider database
             </p>
-            <div class="input-group">
-              <span class="input-group-text">First and Last name</span>
-              <input type="text" aria-label="First name" class="form-control" />
-              <input type="text" aria-label="Last name" class="form-control" />
-            </div>
-            <div class="input-group">
-              <span class="input-group-text">Email and Phone Number</span>
-              <input type="text" aria-label="Email" class="form-control" />
-              <input
-                type="text"
-                aria-label="Phone Number"
-                class="form-control"
-              />
-            </div>
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default"
-                >Practice</span
-              >
-              <input
-                type="text"
-                class="form-control"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
-            <button class="addProBtn">
-              <a href="" class="card-link">Add Provider</a>
-            </button>
+            <form>
+              <div class="input-group">
+                <span class="input-group-text">First and Last name</span>
+                <input
+                  type="text"
+                  aria-label="First name"
+                  class="form-control"
+                  id="proFirst"
+                />
+                <input
+                  type="text"
+                  aria-label="Last name"
+                  class="form-control"
+                  id="proLast"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">Email and Phone Number</span>
+                <input
+                  type="text"
+                  aria-label="Email"
+                  class="form-control"
+                  id="proEmail"
+                />
+                <input
+                  type="text"
+                  aria-label="Phone Number"
+                  class="form-control"
+                  id="proPhone"
+                />
+              </div>
+              <div class="input-group">
+                <span class="input-group-text">Company and Practice</span>
+                <input
+                  type="text"
+                  aria-label="Company"
+                  class="form-control"
+                  id="proCompany"
+                />
+                <input
+                  type="text"
+                  aria-label="Practice"
+                  class="form-control"
+                  id="proPractice"
+                />
+              </div>
+              <button type="submit" class="btn btn-primary" id="addProBtn">
+                Add Provider
+              </button>
+            </form>
           </div>
         </div>
         <!-- ----------------------------------------- -->
