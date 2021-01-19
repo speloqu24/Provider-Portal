@@ -1,25 +1,33 @@
 // CONNECTING TO THIS FILE EXPRESS
 
 // Requiring necessary npm packages
-var express = require("express");
-var session = require("express-session");
+const express = require("express");
+const session = require("express-session");
 // Requiring passport as we've configured it
-var passport = require("./config/passport");
+const passport = require("./config/passport");
 require("dotenv").config();
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
 var db = require("./models");
+var app = express();
+
+const exphbs = require("express-handlebars");
+// Set Handlebars as the default templating engine.
+app.engine("handlebars", exphbs({ defaultLayout: "main" }));
+app.use(express.static("public"));
+app.set("view engine", "handlebars");
 
 // Creating express app and configuring middleware needed for authentication
-var app = express();
+
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(express.static("public"));
 // We need to use sessions to keep track of our user's login status
 app.use(
   session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
 );
+
+// Set Handlebars
 app.use(passport.initialize());
 app.use(passport.session());
 

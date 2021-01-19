@@ -1,5 +1,26 @@
 {{!-- Can we use template literals for `${INPUT}' < whatever button was selected on index.handlebars ' --}}
 {{!-- I think we will need a handlebars for clients and providers, we will see. --}}
 
-{{!-- js files can be linked at the bottom of these files --}}
-{{!-- if that' s the route we went we would need two different HB files --}} <h1>Clients</h1>
+<style media="screen">
+  li {
+    background-color: wheat;
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 50%;
+    font-family: sans-serif;
+  }
+</style>
+
+<h1>All Cients</h1>
+
+<ul>
+  {{#each Clients}}
+    <li>
+      <p>Name: {{first_name}} {{last_name}}</p>
+      <p>Email: {{email}}</p>
+      <p>Phone: {{phone}}</p>
+      <p>Insurance: {{insurance}}</p>
+    <p>Provider: {{Provider.first_name}} {{Provider.last_name}}</p>
+    </li>
+  {{/each}}
+</ul>
