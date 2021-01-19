@@ -3,3 +3,8 @@
 
 {{!-- js files can be linked at the bottom of these files --}}
 {{!-- if that' s the route we went we would need two different HB files --}} <h1>Clients</h1>
+
+    {{!-- link for name to single client page --}}
+    {{#each clients}}
+    <a href="/api/singleClient/" + {data.id}> {{first_name}} {{last_name}} </a>
+    {{#/each}}

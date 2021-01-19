@@ -8,6 +8,8 @@ module.exports = (sequelize, DataTypes) => {
     insurance: DataTypes.STRING,
   });
 
+  //create document table to house all documents, .associate docs with client id
+
   Clients.associate = (models) => {
     Clients.belongsTo(models.Providers, {
       foreignKey: {
