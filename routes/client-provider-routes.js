@@ -5,17 +5,17 @@ const db = require("../models");
 
 module.exports = (app) => {
   // get ALL clients
-  app.get("/clients", (req, res) => {
+  app.get("/api/clients", (req, res) => {
     // findAll THE clients that have been added to the database
-    db.Clients.findAll({}).then((data) => res.json(data));
-  });
-  //.then(res.render('allClient'), {clients: data})
+    db.Clients.findAll({include:[db.Providers]}).then((data) => res.render('allClient', {Clients: JSON.parse(JSON.stringify(data))}));
+  })
+  // .then(res.render('allClient'), {clients: data})
 
   // get ALL providers
   app.get("/api/providers", (req, res) => {
-    db.Providers.findAll({}).then((data) => res.json(data));
-  });
-  //.then(res.render('allProvider'), {providers: data})
+    db.Providers.findAll({}).then((data) => res.render('allProvider', {Providers: JSON.parse(JSON.stringify(data))}));
+  })
+  // .then(res.render('allProvider'), {providers: data})
 
   // add clients
   app.post("/api/client", (req, res) => {
