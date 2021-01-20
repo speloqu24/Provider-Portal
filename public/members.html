@@ -14,9 +14,12 @@
   <body>
     <!-- ----------------------NAVBAR-------------------- -->
     <nav class="navbar navbar-default">
+      <div class="float-start">
+        <img src="./assets/Provider Portal.jpg" id="navbar-logo" />
+      </div>
       <div class="container-fluid">
         <div class="navbar-header">
-          <a class="navbar-brand" href="/logout"> Logout </a>
+          <a class="navbar-brand" id="logout" href="/logout"> Logout </a>
           <a class="navbar-brand" id="viewClients" href="/api/clients">
             View All Clients
           </a>
@@ -29,18 +32,19 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-md-offset-3">
-          <h2>Welcome <span class="member-name"></span></h2>
+          <img src="./assets/Providers.jpg" alt="Providers" id="Provider_img" />
+
+          <!-- <h2>Welcome <span class="member-name"></span></h2> -->
         </div>
       </div>
       <!-- ----------ADD CLIENT CARD---------------- -->
       <div class="row">
         <div class="card col-md-4 col-md-offset-2" style="width: 30rem">
           <div class="card-body">
-            <h3 class="card-title">Add a Client</h3>
-            <!-- Picture of a child? -->
-            <p class="card-text">
-              Enter a new client to your company's client database
-            </p>
+            <h3 class="card-title">ADD CLIENTS</h3>
+            <img src="assets/AddClientImg.jpg" id="add_Img" />
+            <br />
+            <br />
             <form>
               <div class="input-group">
                 <span class="input-group-text">First and Last name</span>
@@ -48,30 +52,38 @@
                   type="text"
                   aria-label="First name"
                   class="form-control"
+                  placeholder="First name"
                   id="clientFirst"
                 />
+                <hr />
                 <input
                   type="text"
                   aria-label="Last name"
                   class="form-control"
+                  placeholder="Last name"
                   id="clientLast"
                 />
               </div>
+              <br />
               <div class="input-group">
                 <span class="input-group-text">Email and Phone Number</span>
                 <input
                   type="text"
                   aria-label="Email"
                   class="form-control"
+                  placeholder="Email"
                   id="clientEmail"
                 />
+                <hr />
                 <input
                   type="text"
                   aria-label="Phone Number"
                   class="form-control"
+                  placeholder="000-000-000"
                   id="clientPhone"
                 />
               </div>
+              <br />
               <div class="input-group mb-3 col-md-12">
                 <span class="input-group-text" id="inputGroup-sizing-default"
                   >Insurance</span
@@ -81,9 +93,11 @@
                   class="form-control"
                   id="clientIns"
                   aria-label="Sizing example input"
+                  placeholder="Medicaid"
                   aria-describedby="inputGroup-sizing-default"
                 />
               </div>
+              <br />
               <select
                 class="form-select col-md-12"
                 aria-label="Default select example"
@@ -101,11 +115,11 @@
         <!-- ---------------ADD PROVIDER CARD-------------------- -->
         <div class="card col-md-4 col-md-offset-2" style="width: 30rem">
           <div class="card-body">
-            <h3 class="card-title">Add a Provider</h3>
+            <h3 class="card-title">ADD PROVIDERS</h3>
             <!-- Doctor picture -->
-            <p class="card-text">
-              Enter a new provider to your company's provider database
-            </p>
+            <img src="assets/addProvider.jpg" id="add_Img" />
+            <br />
+            <br />
             <form>
               <div class="input-group">
                 <span class="input-group-text">First and Last name</span>
@@ -113,12 +127,15 @@
                   type="text"
                   aria-label="First name"
                   class="form-control"
+                  placeholder="First name"
                   id="proFirst"
                 />
+                <hr />
                 <input
                   type="text"
                   aria-label="Last name"
                   class="form-control"
+                  placeholder="Last name"
                   id="proLast"
                 />
               </div>
@@ -128,27 +145,34 @@
                   type="text"
                   aria-label="Email"
                   class="form-control"
+                  placeholder="Email"
                   id="proEmail"
                 />
+                <hr />
                 <input
                   type="text"
                   aria-label="Phone Number"
                   class="form-control"
+                  placeholder="000-000-0000"
                   id="proPhone"
                 />
               </div>
+              <br />
               <div class="input-group">
                 <span class="input-group-text">Company and Practice</span>
                 <input
                   type="text"
                   aria-label="Company"
                   class="form-control"
+                  placeholder="Company Name"
                   id="proCompany"
                 />
+                <hr />
                 <input
                   type="text"
                   aria-label="Practice"
                   class="form-control"
+                  placeholder="Orthopedics"
                   id="proPractice"
                 />
               </div>
@@ -161,6 +185,13 @@
         <!-- ----------------------------------------- -->
       </div>
     </div>
+    <footer>
+      <hr id="footer-break" />
+      <div id="footer" class="text-center">
+        <img src="assets/PP logo.jpg" id="footer-img" />
+        <p id="footer-text">Created for practitioners by practitioners</p>
+      </div>
+    </footer>
     <script
       src="https://code.jquery.com/jquery-3.5.1.min.js"
       integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="
