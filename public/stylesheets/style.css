@@ -2,3 +2,71 @@ form.signup,
 form.login {
   margin-top: 50px;
 }
+
+/* changed lines 18 -26 in members.html */
+/* added assets directory, images inside. */
+/* members.html - h2 commented out "welcome back, line 36" */
+
+.navbar {
+  background-color: white;
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+}
+
+.navbar #navbar-logo {
+  float: left;
+  width: 35%;
+  height: 35%;
+}
+
+h2 {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+}
+
+#Provider_img {
+  align-content: center;
+  width: 120%;
+  height: 50%;
+  border-style: solid;
+  border-color: black;
+  border-width: 2%;
+  margin-right: 100px;
+}
+
+#add_Img {
+  width: 100%;
+  height: 100%;
+}
+
+.card-title {
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bolder;
+  color: maroon;
+}
+
+.input-group-text {
+  font-weight: bold;
+}
+
+.btn-primary {
+  width: 100%;
+  height: 100%;
+  margin-bottom: 50%;
+}
+
+.footer {
+  align-content: center;
+}
+
+#footer-break {
+  margin-top: 5%;
+  border-color: black;
+}
+
+#footer-img {
+  height: 3%;
+  width: 3%;
+}

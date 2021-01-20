@@ -1,7 +1,6 @@
 {
   "name": "1-Passport-Example",
   "version": "1.0.0",
-  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -22,5 +21,15 @@
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
     "sequelize": "^5.8.6"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/speloqu24/Provider_Portal_A.git"
+  },
+  "bugs": {
+    "url": "https://github.com/speloqu24/Provider_Portal_A/issues"
+  },
+  "homepage": "https://github.com/speloqu24/Provider_Portal_A#readme",
+  "description": ""
 }
