@@ -1,39 +1,40 @@
-{{!-- This is for single client data --}}
-{{!-- I think we will need a handlebars for clients and providers, we will see. --}}
-{{!-- I agree, this could be the page where we can upload client docs as well --}}
+<nav class="navbar navbar-default">
+    <div class="float-start">
+        <img src="" id="navbar-logo" />
+    </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" id="logout" href="/logout"> Logout </a>
+            <a class="navbar-brand" href="/members">
+                Home
+            </a>
+            <a class="navbar-brand" id="viewClients" href="/api/clients">
+                View All Clients
+            </a>
+            <a class="navbar-brand" id="viewPro" href="/api/providers">
+                View All Providers
+            </a>
 
-<h1>Current Client</h1>
+        </div>
+    </div>
+</nav>
 
-2 coloumns, far left and far right
+{{#each data}}
+<h1>Sam {{data.first_name}} {{last_name}}</h1>
+{{/each}}
 
-<table>
-    far left
-    <tr class="clients">
-        <td>{{client.photo}}
-        </td>
-    </tr>
-    <tr>
-        <td>{{client.firstName}}</td>
-        <td>{{client.lastName}}</td>
-    </tr>
+<p>{{first_name}}</p>
+<div class="card col-sm-4 col-sm-offset-1" style="width: 25rem;">
+    <div class="card-body">
+        <h5 class="card-title"><a href="/api/singleClient/{{id}}" class="card-link">{{first_name}} {{last_name}}</a>
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">{{Provider.first_name}} {{Provider.last_name}}</h6>
+        <p class="card-text">
+            Insurance: {{insurance}} <br />
+            Email: {{email}}<br />
+            Phone Number: {{phone}}<br />
+        </p>
+    </div>
+</div>
 
-    <tr>
-        <td>{{client.phone}}</td>
-        <td>{{client.email}}</td>
-    </tr>
-</table>
-
-<table>
-    far right
-    <tr class="clients">
-        <td>{{client.provider}}</td>
-    </tr>
-    <tr>
-        <td>{{client.insurance}}</td>
-        <td>{{client.emergencyContact}}</td>
-    </tr>
-</table>
-
-{{!-- form for uploading documents --}}
-
---}}
+<script src="/js/all.js"></script>

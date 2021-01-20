@@ -1,1 +1,22 @@
-{{!-- This is for single provider data --}}
+<nav class="navbar navbar-default">
+    <div class="float-start">
+        <img src=".assets/Provider\ Portal.jpg" id="navbar-logo" />
+    </div>
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" id="logout" href="/logout"> Logout </a>
+            <a class="navbar-brand" href="/members">
+                Home
+            </a>
+            <a class="navbar-brand" id="viewClients" href="/api/clients">
+                View All Clients
+            </a>
+            <a class="navbar-brand" id="viewPro" href="/api/providers">
+                View All Providers
+            </a>
+
+        </div>
+    </div>
+</nav>
+
+<h1>{{first_name}} {{last_name}}</h1>

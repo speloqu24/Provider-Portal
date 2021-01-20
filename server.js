@@ -16,6 +16,7 @@ const exphbs = require("express-handlebars");
 // Set Handlebars as the default templating engine.
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.use(express.static("public"));
+// app.use(express.static("assets"));
 app.set("view engine", "handlebars");
 
 // Creating express app and configuring middleware needed for authentication

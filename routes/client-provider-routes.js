@@ -1,5 +1,6 @@
 // This will require the db from the index/models.js
 const db = require("../models");
+// const uploadHandler = require("../config/middleware/multer");
 
 // Routes
 
@@ -23,6 +24,24 @@ module.exports = (app) => {
   app.get("/api/providerList", (req, res) => {
     db.Providers.findAll({}).then((data) => res.json(data));
   });
+
+  app.get("/api/singleClient/:id", (req, res) => {
+    let testId = parseInt(req.params.id);
+    console.log(typeof testId);
+    db.Clients.findAll({
+      where: { id: testId },
+    }).then((clients) => console.log(clients));
+  });
+
+  app.get("/api/singleProvider/:id", (req, res) => {
+    db.Providers.findOne({
+      where: { id: req.params.id },
+    }).then((provider) => res.render("singleProvider", provider));
+  });
+
+  // app.post("/api/singleClient/:id", uploadHandler.any(), (req, res) => {
+  //   db.documents.create(clientId, req.files).then((data) => res.status(200));
+  // });
 
   // add clients form
   app.post("/api/client", (req, res) => {
