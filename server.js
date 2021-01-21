@@ -11,7 +11,7 @@ const multer = require("multer");
 const upload = multer({ dest: "public/assets/uploads" });
 
 // Setting up port and requiring models for syncing
-var PORT = process.env.PORT || 8080;
+var PORT = process.env.PORT || 8085;
 var db = require("./models");
 var app = express();
 
