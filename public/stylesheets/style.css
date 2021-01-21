@@ -112,8 +112,8 @@ h2 {
   width: 3%;
 }
 
-@media only screen and (max-width: 600px) {
-  container {
+@media only screen and (max-width: 800px) {
+  /* container {
     width: 95vw;
     margin: 40px 0;
   }
@@ -121,9 +121,22 @@ h2 {
     width: 85vw;
     margin: 0 0 20px 0;
     clear: both;
+  } */
+
+  .navbar-brand {
+    float: right;
+    font-size: smaller;
+    margin-left: -7%;
+    margin-top: -5vw;
   }
-  .col-md-4 {
-    width: 95%;
+
+  .card-body {
+    width: 95vw;
+    height: 95%;
+    margin-top: 5%;
+  }
+  #Provider_img {
+    width: 95vw;
     height: 95%;
   }
 }
