@@ -1,3 +1,5 @@
+// PROVIDERS TABLE CREATED
+
 module.exports = (sequelize, DataTypes) => {
   const Providers = sequelize.define("Providers", {
     first_name: DataTypes.STRING,
