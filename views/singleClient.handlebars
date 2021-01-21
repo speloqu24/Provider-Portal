@@ -20,21 +20,31 @@
 </nav>
 
 {{#each data}}
-<h1>Sam {{data.first_name}} {{last_name}}</h1>
-{{/each}}
+<h1>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</h1>
 
-<p>{{first_name}}</p>
-<div class="card col-sm-4 col-sm-offset-1" style="width: 25rem;">
+<div class="card col-sm-4 col-sm-offset-1" style="width: 50rem;">
     <div class="card-body">
-        <h5 class="card-title"><a href="/api/singleClient/{{id}}" class="card-link">{{first_name}} {{last_name}}</a>
+        <h5 class="card-title">Provider: {{this.dataValues.Provider.first_name}}
+            {{this.dataValues.Provider.last_name}}
         </h5>
-        <h6 class="card-subtitle mb-2 text-muted">{{Provider.first_name}} {{Provider.last_name}}</h6>
+        <h6 class="card-subtitle mb-2 text-muted">
+            Client ID: {{this.dataValues.id}}</h6>
         <p class="card-text">
-            Insurance: {{insurance}} <br />
-            Email: {{email}}<br />
-            Phone Number: {{phone}}<br />
+            Insurance: {{this.dataValues.insurance}} <br />
+            Email: {{this.dataValues.email}}<br />
+            Phone Number: {{this.dataValues.phone}}<br />
         </p>
     </div>
 </div>
 
+<form action="/api/singleClient/:id" method="POST" enctype="multipart/form-data">
+    <div class="clientDocs">
+        <label for="clients">Select Client Document</label>
+        <input type="file" name="clientDocs"></input>
+        <br>
+    </div>
+    <button type="submit">Upload Document</button>
+</form>
+
+{{/each}}
 <script src="/js/all.js"></script>

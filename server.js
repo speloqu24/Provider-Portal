@@ -6,6 +6,9 @@ const session = require("express-session");
 // Requiring passport as we've configured it
 const passport = require("./config/passport");
 require("dotenv").config();
+//Requiring multer for file uploading
+const multer = require("multer");
+const upload = multer({ dest: "public/assets/uploads" });
 
 // Setting up port and requiring models for syncing
 var PORT = process.env.PORT || 8080;
@@ -36,7 +39,6 @@ app.use(passport.session());
 require("./routes/html-routes.js")(app);
 require("./routes/api-routes.js")(app);
 require("./routes/client-provider-routes")(app);
-// require("./routes/handlebar-routes")(app);
 
 // Syncing our database and logging a message to the user upon success
 db.sequelize.sync().then(function () {

@@ -26,17 +26,18 @@ module.exports = (app) => {
   });
 
   app.get("/api/singleClient/:id", (req, res) => {
-    let testId = parseInt(req.params.id);
-    console.log(typeof testId);
+    let cliId = parseInt(req.params.id);
     db.Clients.findAll({
-      where: { id: testId },
-    }).then((clients) => console.log(clients));
+      where: { id: cliId },
+      include: [db.Providers],
+    }).then((client) => res.render("singleClient", { data: client }));
   });
 
   app.get("/api/singleProvider/:id", (req, res) => {
-    db.Providers.findOne({
-      where: { id: req.params.id },
-    }).then((provider) => res.render("singleProvider", provider));
+    let proId = parseInt(req.params.id);
+    db.Providers.findAll({
+      where: { id: proId },
+    }).then((provider) => res.render("singleProvider", { data: provider }));
   });
 
   // app.post("/api/singleClient/:id", uploadHandler.any(), (req, res) => {

@@ -1,22 +1,29 @@
 const clientName = document.querySelector(".allClient");
 
 clientName.addEventListener("click", (event) => {
-  console.log("clicked");
   if (event.target.matches("h5")) {
-    let id = event.target.getAttribute("data-id");
-    fetch(`/api/singleClient/${id}`)
+    let cliId = event.target.getAttribute("data-id");
+    fetch(`/api/singleClient/${cliId}`)
       .then((res) => {
-        window.location.replace(`/api/singleClient/${id}`);
+        window.location.replace(`/api/singleClient/${cliId}`);
       })
       .catch((err) => console.log(err));
   }
 });
 
-const providerName = document.querySelector(".allProvider");
+//----------------------------------------------------------
+//reserved for next round of development
 
-providerName.addEventListener("click", (event) => {
-  if (event.target.matches("h5")) {
-    let id = event.target.getAttribute("data-id");
-    fetch(`/api/singleProvider/${id}`).catch((err) => console.log(err));
-  }
-});
+// const providerName = document.querySelector(".allProvider");
+
+// providerName.addEventListener("click", (event) => {
+//   if (event.target.matches("h5")) {
+//     let proId = event.target.getAttribute("data-id");
+//     fetch(`/api/singleProvider/${proId}`)
+//       .then((res) => {
+//         window.location.replace(`/api/singleProvider/${proId}`);
+//       })
+//       .catch((err) => console.log(err));
+//   }
+// });
+//------------------------------------------------------------

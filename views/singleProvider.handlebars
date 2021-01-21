@@ -1,3 +1,5 @@
+{{!-- PAGE RESERVED FOR NEXT ROUND OF DEVELOPMENT --}}
+{{!-- FOR PROVIDER BIOS --}}
 <nav class="navbar navbar-default">
     <div class="float-start">
         <img src=".assets/Provider\ Portal.jpg" id="navbar-logo" />
@@ -19,4 +21,23 @@
     </div>
 </nav>
 
-<h1>{{first_name}} {{last_name}}</h1>
+{{#each data}}
+<h1>{{this.dataValues.first_name}} {{this.dataValues.last_name}}</h1>
+
+<div class="card col-sm-4 col-sm-offset-1" style="width: 50rem;">
+    <div class="card-body">
+        <h5 class="card-title">Practice: {{this.dataValues.practice}}
+        </h5>
+        <h6 class="card-subtitle mb-2 text-muted">
+            Provider ID: {{this.dataValues.id}}</h6>
+        <p class="card-text">
+            Company: {{this.dataValues.company}} <br />
+            Email: {{this.dataValues.email}}<br />
+            Phone Number: {{this.dataValues.phone}}<br />
+        </p>
+    </div>
+</div>
+
+{{/each}}
+{{!--
+<script src="/js/all.js"></script> --}}
