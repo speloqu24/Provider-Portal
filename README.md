@@ -1,4 +1,4 @@
-# Project 2: Provider Portal
+# Provider Portal
 
 ## Table of Contents
 
